@@ -1,11 +1,16 @@
 package com.gitlab.sokoban.domain.model;
 
+import com.gitlab.sokoban.domain.model.Position;
+import com.gitlab.sokoban.domain.model.Size;
+import com.gitlab.sokoban.domain.model.State;
+import com.gitlab.sokoban.domain.model.Tile;
+
 import java.util.List;
 
-public record Map(Size size, List<Tile> tiles) {
+public record Map(Size size, List<List<Tile>> tiles) {
 
     public boolean isWall(Position position) {
-        return tiles.stream().anyMatch(tile -> tile.position().equals(position) && tile.type() == State.WALL);
+        return tiles.get(position.y()).get(position.x()).type() == State.WALL;
     }
 
     public boolean inside(Position position) {
