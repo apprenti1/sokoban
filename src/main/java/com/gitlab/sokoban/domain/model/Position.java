@@ -1,4 +1,5 @@
 package com.gitlab.sokoban.domain.model;
 
-public class Pos {
+public record Position(int x, int y) {
 }
+

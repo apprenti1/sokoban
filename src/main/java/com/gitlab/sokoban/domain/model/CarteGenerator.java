@@ -51,6 +51,5 @@ public class CarteGenerator {
 
         return new Carte(tiles, width, height);
     }
-
 }
 
