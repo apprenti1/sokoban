@@ -1,12 +1,12 @@
 package com.gitlab.sokoban.domain.model;
 
-public enum CaseState {
+public enum State {
+    WALL,
     EMPTY,
     PLAYER,
     BOX,
-    WALL,
+    STORAGE_CASE,
     STORED_BOX,
-    STORAGE_CASE
 }
 
 //- [WALL] Mur : rien ne peut être déplacé sur cette case

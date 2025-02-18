@@ -1,10 +1,10 @@
 package com.gitlab.sokoban.domain.model;
 
-public class Pos {
+public class Position {
     private final int x;
     private final int y;
 
-    public Pos(int x, int y) {
+    public Position(int x, int y) {
         this.x = x;
         this.y = y;
     }
