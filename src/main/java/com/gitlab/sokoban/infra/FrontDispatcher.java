@@ -25,7 +25,7 @@ public class FrontDispatcher {
     }
 
 
-
+/*
     static List<List<String>> toDTO(Sokoban sokoban) {
         List<Tile> Tiles = sokoban.getTiles();
 
@@ -60,7 +60,7 @@ public class FrontDispatcher {
         model.addAttribute("Tiles", toDTO(current));
         return "index.html";
     }
-
+*/
 /*
 
     @RequestMapping(path = "", method = RequestMethod.POST)
