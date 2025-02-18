@@ -31,12 +31,12 @@ public class FrontDispatcher {
 
         Size size = sokoban.getSize();
 
-        Stream<Tile> emptyTiles = IntStream.range(0, size.width)
+        Stream<Tile> emptyTiles = IntStream.range(0, size.width())
                 .mapToObj((x) ->
-                        IntStream.range(0, size.height).mapToObj((y) -> new Position(x, y)))
+                        IntStream.range(0, size.height()).mapToObj((y) -> new Position(x, y)))
                 .flatMap((o) -> o)
                 .filter(position -> Tiles.stream().noneMatch(t -> t.position().equals(position)))
-                .map((p) -> new Tile(p, State.Empty));
+                .map((p) -> new Tile(p, State.EMPTY));
 
         return (Stream.concat(emptyTiles, Tiles.stream()))
                 .collect(Collectors.groupingBy((Tile Tile) -> Tile.position().y)).values()
