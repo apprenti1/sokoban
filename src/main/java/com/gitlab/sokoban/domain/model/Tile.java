@@ -3,9 +3,9 @@ package com.gitlab.sokoban.domain.model;
 public class Tile {
     private final int x;
     private final int y;
-    private final TileType type;
+    private final State type;
 
-    public Tile(int x, int y, TileType type) {
+    public Tile(int x, int y, State type) {
         this.x = x;
         this.y = y;
         this.type = type;
@@ -13,5 +13,5 @@ public class Tile {
 
     public int getX() { return x; }
     public int getY() { return y; }
-    public TileType getType() { return type; }
+    public State getType() { return type; }
 }

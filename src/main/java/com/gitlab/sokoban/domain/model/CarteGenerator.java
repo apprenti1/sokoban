@@ -9,20 +9,18 @@ public class CarteGenerator {
         List<Tile> tiles = new ArrayList<>();
         String[] lines = str.split("\n");
 
-        // Ignorer les deux premières lignes (numéros des colonnes)
         for (int y = 2; y < lines.length; y++) {
             String line = lines[y];
-            // Ignorer l'index de la ligne
             String content = line.substring(1).trim();
 
             for (int x = 0; x < content.length(); x++) {
                 char c = content.charAt(x);
-                TileType type = switch (c) {
-                    case '#' -> TileType.WALL;
-                    case '$' -> TileType.BOX;
-                    case '.' -> TileType.STORAGE;
-                    case '@' -> TileType.PLAYER;
-                    default -> TileType.FLOOR;
+                State type = switch (c) {
+                    case '#' -> State.WALL;
+                    case '$' -> State.BOX;
+                    case '.' -> State.STORAGE_CASE;
+                    case '@' -> State.PLAYER;
+                    default -> State.EMPTY;
                 };
                 tiles.add(new Tile(x, y - 2, type));
             }
@@ -30,15 +28,10 @@ public class CarteGenerator {
         return tiles;
     }
 
-    /**
-     * Construit une carte à partir d'une chaîne de caractères
-     * @param str La chaîne représentant la carte
-     * @return La carte construite
-     */
+
     public static Carte build(String str) {
         List<Tile> tiles = toTiles(str);
 
-        // Calculer les dimensions de la carte
         int width = tiles.stream()
                 .mapToInt(Tile::getX)
                 .max()
