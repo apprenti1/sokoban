@@ -3,7 +3,7 @@ package com.gitlab.sokoban.domain.model;
 import java.util.List;
 
 public class Sokoban {
-    private Carte map; // map de tiles
+    private Map map; // map de tiles
     private List<Position> storage; // positions stockage de boites
     private List<Position> wall; // position des murs
     private Position position; // position du joueur
@@ -19,11 +19,11 @@ public class Sokoban {
 
     private List<Tile> tiles;
 
-    public Carte getMap() {
+    public Map getMap() {
         return map;
     }
 
-    public void setMap(Carte map) {
+    public void setMap(Map map) {
         this.map = map;
     }
 
@@ -59,9 +59,9 @@ public class Sokoban {
         this.size = size;
     }
 
-    public Sokoban(Carte map, List<Position> storage, List<Position> wall, Position position) {
+    public Sokoban(Map map, List<Position> storage, List<Position> wall, Position position) {
         this.map = map;
-        this.size = new Size(map.getWidth(), map.getHeight());
+        this.size = map.size();
         this.storage = storage;
         this.wall = wall;
         this.position = position;
